@@ -1,1 +1,1 @@
-bool do_nothing(bool x);
+#include <stdbool.h>

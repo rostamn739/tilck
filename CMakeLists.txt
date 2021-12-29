@@ -58,6 +58,15 @@ define_env_cache_str_var(OBJCOPY "${CMAKE_OBJCOPY}")
 define_env_cache_str_var(STRIP "${CMAKE_STRIP}")
 define_env_cache_str_var(GCOV "gcov")
 
+# This is where all the Rust code is put by me
+set(RUST_EXTENSION_MODULE_NAME nasibu)
+set(
+        RUST_EXTENSION_MODULE_INCLUDES
+        "${CMAKE_SOURCE_DIR}/modules/${RUST_EXTENSION_MODULE_NAME}"
+)
+
+include_directories(${RUST_EXTENSION_MODULE_INCLUDES})
+
 # Debug cache variables
 
 # We don't really need to cache the values of CC/CXX, but is useful to that

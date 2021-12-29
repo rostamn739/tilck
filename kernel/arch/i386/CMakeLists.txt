@@ -28,10 +28,9 @@ set(ARCH_START_FILE "start.S")
 set(ARCH_SOURCES_GLOB "*.S" "*.c")
 
 # This is where all the Rust code is put by me
-set(RUST_EXTENSION_MODULE_NAME nasibu)
 set(
-     RUST_EXTENSION_MODULE_LIB
-     ${CMAKE_SOURCE_DIR}/modules/${RUST_EXTENSION_MODULE_NAME}/target/i686-unknown-linux-musl/debug/lib${RUST_EXTENSION_MODULE_NAME}.a
+      RUST_EXTENSION_MODULE_LIB
+      ${CMAKE_SOURCE_DIR}/modules/${RUST_EXTENSION_MODULE_NAME}/target/i686-unknown-linux-musl/debug/lib${RUST_EXTENSION_MODULE_NAME}.a
 )
 
 file(GLOB ARCH_SOURCES ${GLOB_CONF_DEP} ${ARCH_SOURCES_GLOB})

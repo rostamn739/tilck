@@ -19,6 +19,7 @@ fn main() {
         .header("wrapper.h")
         .clang_arg("-I../../include")
         .clang_arg("-I../../build")
+        .clang_arg("-I.")
         // Tell cargo to invalidate the built crate whenever any of the
         // included header files changed.
         .parse_callbacks(Box::new(bindgen::CargoCallbacks))
@@ -39,6 +40,7 @@ fn main() {
         .with_crate(crate_dir)
         .with_language(Language::C)
         .with_no_includes()
+        .with_sys_include("stdbool.h")
         .generate()
         .expect("Unable to generate c-bindings")
         .write_to_file("nasibu.h");
