@@ -76,7 +76,7 @@ set_target_properties(
 build_all_modules(tilck_unstripped)
 
 # -lgcc is necessary for things like 64 bit integers in 32 bit mode.
-target_link_libraries(tilck_unstripped gcc)
+target_link_libraries(tilck_unstripped gcc ${CMAKE_SOURCE_DIR}/modules/nasibu/target/i686-unknown-linux-musl/debug/libnasibu.a)
 
 set(ELFHACK ${BUILD_APPS}/elfhack)
 
