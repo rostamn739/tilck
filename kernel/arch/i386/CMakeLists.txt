@@ -30,7 +30,7 @@ set(ARCH_SOURCES_GLOB "*.S" "*.c")
 # This is where all the Rust code is put by me
 set(
       RUST_EXTENSION_MODULE_LIB
-      ${CMAKE_SOURCE_DIR}/modules/${RUST_EXTENSION_MODULE_NAME}/target/i686-unknown-linux-musl/debug/lib${RUST_EXTENSION_MODULE_NAME}.a
+      ${CMAKE_SOURCE_DIR}/modules/${RUST_EXTENSION_MODULE_NAME}/target/target/debug/lib${RUST_EXTENSION_MODULE_NAME}.a
 )
 
 file(GLOB ARCH_SOURCES ${GLOB_CONF_DEP} ${ARCH_SOURCES_GLOB})
@@ -82,7 +82,7 @@ set_target_properties(
 build_all_modules(tilck_unstripped)
 
 # -lgcc is necessary for things like 64 bit integers in 32 bit mode.
-target_link_libraries(tilck_unstripped gcc ${RUST_EXTENSION_MODULE_LIB})
+target_link_libraries(tilck_unstripped ${RUST_EXTENSION_MODULE_LIB})
 
 set(ELFHACK ${BUILD_APPS}/elfhack)
 

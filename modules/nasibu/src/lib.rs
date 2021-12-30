@@ -10,7 +10,14 @@ fn panic(_info: &PanicInfo) -> ! {
 
 #[no_mangle]
 pub extern "C" fn nbu_allow_logo() -> bool {
-    false
+    extern crate alloc;
+    use alloc::collections::BTreeMap;
+
+    let mut map: BTreeMap<&str, bool> = <_>::default();
+    map.insert("on", true);
+    map.insert("off", false);
+
+    map["on"]
 }
 
 pub mod allocator;
