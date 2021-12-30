@@ -1,6 +1,6 @@
 #!/bin/sh
 
 # run cargo build
-cargo build --target=i686-unknown-linux-musl
+cargo build -Z build-std=core,alloc --target=target.json
 
 

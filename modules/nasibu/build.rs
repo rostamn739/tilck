@@ -20,6 +20,7 @@ fn main() {
         .clang_arg("-I../../include")
         .clang_arg("-I../../build")
         .clang_arg("-I.")
+        .clang_arg("--target=i686-unknown-none")
         .use_core()
         .ctypes_prefix("cty")
         // Tell cargo to invalidate the built crate whenever any of the

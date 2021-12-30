@@ -1,4 +1,4 @@
 [toolchain]
 channel = "nightly"
-targets = ["i686-unknown-linux-musl"]
+# targets = ["i686-unknown-linux-musl"]
 
