@@ -41,6 +41,8 @@
 #include <3rd_party/acpi/acpi.h>
 #include <3rd_party/acpi/acexcep.h>
 
+#include "nasibu.h"
+
 static bool read_multiboot_info_passed;
 static u32 saved_multiboot_magic;
 static multiboot_info_t *saved_multiboot_mbi;
@@ -329,7 +331,9 @@ static void do_async_init()
    init_modules();
    init_extra_debug_features();
 
-   show_hello_message();
+   if (nbu_allow_logo()) {
+      show_hello_message();
+   }
    run_init_or_selftest();
 }
 

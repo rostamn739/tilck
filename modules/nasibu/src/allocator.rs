@@ -20,3 +20,8 @@ unsafe impl GlobalAlloc for KernAlloc {
         vfree2(ptr.cast(), layout.size() as size_t)
     }
 }
+
+#[alloc_error_handler]
+fn foo(_: core::alloc::Layout) -> ! {
+    loop {}
+}

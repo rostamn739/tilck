@@ -1,4 +1,4 @@
 [toolchain]
-channel = "stable"
-targets = ["i686-unknown-linux-musl"]
+channel = "nightly"
+targets = ["i686-unknown-none"]
 
