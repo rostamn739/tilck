@@ -2,12 +2,12 @@ use crate::bindings::{size_t, vfree2, vmalloc};
 use core::alloc::{GlobalAlloc, Layout};
 use core::ptr;
 
-struct KernAlloc;
+struct VAlloc;
 
 #[global_allocator]
-static GLOBAL: KernAlloc = KernAlloc;
+static GLOBAL: VAlloc = VAlloc;
 
-unsafe impl GlobalAlloc for KernAlloc {
+unsafe impl GlobalAlloc for VAlloc {
     unsafe fn alloc(&self, layout: Layout) -> *mut u8 {
         if let Ok(checked_size) = layout.size().try_into() {
             vmalloc(checked_size).cast()

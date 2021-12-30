@@ -331,9 +331,7 @@ static void do_async_init()
    init_modules();
    init_extra_debug_features();
 
-   if (nbu_allow_logo()) {
-      show_hello_message();
-   }
+   show_hello_message();
    run_init_or_selftest();
 }
 

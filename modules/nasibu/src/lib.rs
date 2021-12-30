@@ -8,19 +8,7 @@ fn panic(_info: &PanicInfo) -> ! {
     loop {}
 }
 
-#[no_mangle]
-pub extern "C" fn nbu_allow_logo() -> bool {
-    extern crate alloc;
-    use alloc::collections::BTreeMap;
-
-    let mut map: BTreeMap<&str, bool> = <_>::default();
-    map.insert("on", true);
-    map.insert("off", false);
-
-    map["off"]
-}
-
-pub mod allocator;
+pub mod valloc;
 
 /// cbindgen:ignore
 #[allow(non_upper_case_globals)]

@@ -81,7 +81,26 @@ set_target_properties(
 
 build_all_modules(tilck_unstripped)
 
-# -lgcc is necessary for things like 64 bit integers in 32 bit mode.
+add_custom_command(
+        OUTPUT
+         ${RUST_EXTENSION_MODULE_LIB}
+        COMMAND
+         ${CMAKE_SOURCE_DIR}/modules/${RUST_EXTENSION_MODULE_NAME}/clean.sh
+        COMMAND
+         ${CMAKE_SOURCE_DIR}/modules/${RUST_EXTENSION_MODULE_NAME}/build.sh
+        WORKING_DIRECTORY
+         ${CMAKE_SOURCE_DIR}/modules/${RUST_EXTENSION_MODULE_NAME}
+        COMMENT
+         "Rebuild the Rust extension module"
+)
+
+add_custom_target(
+        rust_target ALL
+        DEPENDS
+         ${RUST_EXTENSION_MODULE_LIB}
+)
+
+# -lgcc was necessary for things like 64 bit integers in 32 bit mode.
 target_link_libraries(tilck_unstripped ${RUST_EXTENSION_MODULE_LIB})
 
 set(ELFHACK ${BUILD_APPS}/elfhack)
