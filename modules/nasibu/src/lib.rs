@@ -1,11 +1,15 @@
 #![no_std]
 #![feature(alloc_error_handler)]
 
+use core::arch::asm;
 use core::panic::PanicInfo;
 
 #[panic_handler]
-fn panic(_info: &PanicInfo) -> ! {
-    loop {}
+fn panic(_info: &PanicInfo) -> !
+{
+    loop {
+        unsafe { asm!("hlt") }
+    }
 }
 
 pub mod valloc;

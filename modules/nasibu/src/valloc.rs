@@ -1,6 +1,7 @@
 use crate::bindings::{size_t, vfree2, vmalloc};
 use core::alloc::{GlobalAlloc, Layout};
 use core::ptr;
+use core::arch::asm;
 
 struct VAlloc;
 
@@ -23,5 +24,7 @@ unsafe impl GlobalAlloc for VAlloc {
 
 #[alloc_error_handler]
 fn foo(_: core::alloc::Layout) -> ! {
-    loop {}
+    loop {
+        unsafe { asm!("hlt") }
+    }
 }
