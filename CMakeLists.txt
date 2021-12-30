@@ -649,14 +649,14 @@ set(EARLY_BOOT_SZ           4096)  # Better not touch!
 set(STAGE3_ENTRY_OFF        4096)  # Better not touch!
 set(DISK_UUID         0x4906062b)  # UUID of Tilck's disk image ${IMG_FILE}
 set(MAX_BOOTLOADER_BIN_SZ_KB  64)  # Max size of bootloader.bin (keep updated!)
-set(IMG_SZ_MB                 36)  # Total size of tilck.img
+set(IMG_SZ_MB                 128)  # Total size of tilck.img
 
 if (KERNEL_UBSAN)
-   set(INITRD_SZ_MB              30)  # Size of the initrd RAMDISK in MB
-   set(BOOTPART_SZ_SEC        10240)  # Size of the boot partition in sectors
+   set(INITRD_SZ_MB              64)  # Size of the initrd RAMDISK in MB
+   set(BOOTPART_SZ_SEC        24240)  # Size of the boot partition in sectors
 else()
-   set(INITRD_SZ_MB              32)  # Size of the initrd RAMDISK in MB
-   set(BOOTPART_SZ_SEC         6144)  # Size of the boot partition in sectors
+   set(INITRD_SZ_MB              68)  # Size of the initrd RAMDISK in MB
+   set(BOOTPART_SZ_SEC         18144)  # Size of the boot partition in sectors
 endif()
 
 

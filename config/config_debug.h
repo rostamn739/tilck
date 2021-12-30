@@ -43,8 +43,8 @@
 /* ------------------------------- */
 
 #if !KERNEL_GCOV
-   #define SYMTAB_MAX_SIZE            (  96 * KB)
-   #define STRTAB_MAX_SIZE            (  96 * KB)
+   #define SYMTAB_MAX_SIZE            ( 224 * KB)
+   #define STRTAB_MAX_SIZE            ( 1024 * KB)
 #else
    #define SYMTAB_MAX_SIZE            ( 224 * KB)
    #define STRTAB_MAX_SIZE            ( 224 * KB)
