@@ -20,6 +20,8 @@ fn main() {
         .clang_arg("-I../../include")
         .clang_arg("-I../../build")
         .clang_arg("-I.")
+        .use_core()
+        .ctypes_prefix("cty")
         // Tell cargo to invalidate the built crate whenever any of the
         // included header files changed.
         .parse_callbacks(Box::new(bindgen::CargoCallbacks))
