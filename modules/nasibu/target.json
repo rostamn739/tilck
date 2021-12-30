@@ -13,7 +13,7 @@
 		"kind": "call"
 	},
 	"target-pointer-width": "32",
-	"features": "+soft-float"
+	"features": "-mmx,-sse,+soft-float"
 }
 
 

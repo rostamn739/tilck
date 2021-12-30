@@ -17,7 +17,7 @@ pub extern "C" fn nbu_allow_logo() -> bool {
     map.insert("on", true);
     map.insert("off", false);
 
-    map["on"]
+    map["off"]
 }
 
 pub mod allocator;
