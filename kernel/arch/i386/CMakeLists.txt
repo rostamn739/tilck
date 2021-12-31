@@ -140,6 +140,7 @@ if (KERNEL_SYMBOLS)
          tilck_unstripped
          elfhack
          ${CMAKE_BINARY_DIR}/scripts/build_apps/elfhack
+         rust_target
       COMMENT
          "Preparing kernel's stripped binary"
    )
@@ -156,7 +157,7 @@ else()
       COMMAND
          elfhack ${KERNEL_FILE} --move-metadata
       DEPENDS
-         elfhack tilck_unstripped
+         elfhack tilck_unstripped rust_target
       COMMENT
          "Preparing kernel's stripped binary"
    )
